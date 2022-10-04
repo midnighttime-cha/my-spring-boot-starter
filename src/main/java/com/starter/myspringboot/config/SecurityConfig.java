@@ -1,3 +1,4 @@
+
 package com.starter.myspringboot.config;
 
 import org.springframework.context.annotation.Bean;
@@ -11,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
   @Bean
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
@@ -31,7 +33,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // requesting for API the server
         // know the client. But the server
         // unknow client when response data.
-        .and().authorizeRequests().antMatchers("/user/register", "/user/login").anonymous()
+        .and().authorizeRequests().antMatchers(
+            "/actuator",
+            "/user/register",
+            "/user/login")
+        .anonymous()
         // if requesting to the
         // API: "/user/register" or
         // "/user/login" the

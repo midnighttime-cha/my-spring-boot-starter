@@ -31,4 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
-src/main/resources/applicatio-dev.yaml
+src/main/resources/applicatio.yaml
